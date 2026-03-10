@@ -79,7 +79,7 @@ class ACRCloudService:
                 'data_type': (None, 'audio'),
                 'signature_version': (None, '1'),
             }
-            response = requests.post(f'https://{self.host}/v1/identify', files=files, timeout=30)
+            response = requests.post(f'https://{self.host}/v1/identify', files=files, timeout=60)
             return self._parse_result(response.json())
         except FileNotFoundError:
             return {'copyrighted': None, 'error': 'File not found'}
